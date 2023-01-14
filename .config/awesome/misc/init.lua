@@ -26,11 +26,14 @@ end
 
 local applications = {
     "picom --config $HOME/.config/awesome/misc/picom/panthom.conf &",
+    "setxkbmap -layout br",
+    "xrandr --output DisplayPort-1 --auto --output HDMI-A-0 --primary --left-of DisplayPort-1"
 }
 
 for _, prc in ipairs(applications) do
     run(prc)
 end
+
 
 -- only-one-time process (mpdris2)
 awful.spawn.easy_async_with_shell("pidof python3", function (stdout)

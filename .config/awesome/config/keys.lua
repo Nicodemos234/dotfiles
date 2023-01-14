@@ -52,7 +52,7 @@ awful.keyboard.append_global_keybindings({
 	end, 
     { description = "open web browser", group = "launcher" }),
 
-	awful.key({ modkey }, "e", function()
+	awful.key({ modkey }, "space", function()
         awful.spawn(misc.rofiCommand)
 	end,
     { description = "open rofi", group = "launcher" }),
@@ -94,10 +94,15 @@ awful.keyboard.append_global_keybindings({
 
 
     awful.key({}, "Print", function() 
-        awful.util.spawn(home_var .. "/.scripts/ss area", false)
+        awful.util.spawn("flameshot gui", false)
     end,
     {description = "screenshot", group = "control"}),
 
+
+    awful.key({ shift }, "Print", function() 
+        awful.util.spawn("deepin-screen-recorder", false)
+    end,
+    {description = "screen recorder", group = "control"}),
 
     awful.key({}, "XF86AudioRaiseVolume",
             function() awful.spawn("amixer -D pulse set Master 5%+", false) 
@@ -229,8 +234,8 @@ awful.keyboard.append_global_keybindings({
     awful.key({ modkey, ctrl }, "l",     function () awful.tag.incncol(-1, nil, true)           end,
               {description = "decrease the number of columns", group = "layout"}),
 
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                  end,
-              {description = "select next", group = "layout"}),
+    -- awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                  end,
+    --           {description = "select next", group = "layout"}),
 
     awful.key({ modkey, shift   }, "space", function () awful.layout.inc(-1)                    end,
               {description = "select previous", group = "layout"}),
